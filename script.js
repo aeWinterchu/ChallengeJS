@@ -8,7 +8,7 @@ c.fillStyle = 'white'
 c.fillRect(0,0,canvas.width,canvas.height)
 
 const image = new Image()
-image.src = 'map.png'
+image.src = 'map.png' // map test non disponible
 
 const playImage = new Image()
 playImage.src = 'playerDown.png'
