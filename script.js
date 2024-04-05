@@ -1,14 +1,14 @@
 const canvas =document.querySelector('canvas')
 const c = canvas.getContext('2d')
 
-canvas.width = 880
-canvas.height = 526
+canvas.width = 1024
+canvas.height = 567
 
 c.fillStyle = 'white'
 c.fillRect(0,0,canvas.width,canvas.height)
 
 const image = new Image()
-image.src = 'mapv1.png'
+image.src = 'map.png'
 
 const playImage = new Image()
 playImage.src = 'playerDown.png'
@@ -16,31 +16,14 @@ playImage.src = 'playerDown.png'
 let backgroundImageX = 0 // a redefinir quand y'auras la map 
 let playerImageX=0   // a redefinir quand y'auras la map 
 
-function animate(){
-  window.requestAnimationFrame(animate)
-  image.onload = () => {
-    c.drawImage(image,0,0)
-    c.drawImage(playImage,
-      0,
-      0,
-      playImage.width/4,
-      playImage.height,
-      canvas.width/2-playImage.width/2,
-      canvas.height/2-playImage.height/2,
-      playImage.width/4,
-      playImage.height
-      )
-    }
-}
-animate()
-
 class Sprite{
-  constructor({position,velocity}){
+  constructor({position,velocity,image}){
     this.position=position
+    this.image=image
   }
 
   draw() {
-    c.drawImage(this.image,0,0)
+    c.drawImage(this.image,this.position.x,this.position.y)
   }
 }
 
@@ -52,43 +35,67 @@ const background =new Sprite({
   image:image
 })
 
+const keys = {
+  z: { pressed: false },
+  q: { pressed: false },
+  s: { pressed: false },
+  d: { pressed: false }
+};
 
-image.onload = () => {
-    c.drawImage(image,0,0)
-    c.drawImage(playImage,
-      0,
-      0,
-      playImage.width/4,
-      playImage.height,
-      canvas.width/2-playImage.width/2,
-      canvas.height/2-playImage.height/2,
-      playImage.width/4,
-      playImage.height
-      )
-
-}
 
 function animate(){
   window.requestAnimationFrame(animate)
-  console.log('animate')
+  background.draw()
+  c.drawImage(
+    playImage,
+    0,
+    0,
+    playImage.width/4,
+    playImage.height,
+    canvas.width/2-playImage.width/2,
+    canvas.height/2-playImage.height/2,
+    playImage.width/4,
+    playImage.height
+    )  
+
+  if (keys.s.pressed){
+    background.position.y -= 3
+  }
 }
+animate()
 
 window.addEventListener('keydown',(e)=> {
   console.log(e.key)
   switch (e.key){
     case 's':
-      console.log('pressed s key')
+      keys.s.pressed=true
       break
     case 'z':
-      console.log('pressed z key')
+      keys.z.pressed=true 
       break
     case 'q':
-      console.log('pressed q key')
+      keys.q.pressed=true 
       break
     case 'd':
-      console.log('pressed d key')
+      keys.d.pressed=true 
       break
   }
 })
 
-
+window.addEventListener('keyup',(e)=> {
+  console.log(e.key)
+  switch (e.key){
+    case 's':
+      keys.s.pressed=false
+      break
+    case 'z':
+      keys.z.pressed=false
+      break
+    case 'q':
+      keys.q.pressed=false
+      break
+    case 'd':
+      keys.d.pressed=false
+      break
+  }
+})
