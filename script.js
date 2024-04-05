@@ -8,7 +8,7 @@ c.fillStyle = 'white'
 c.fillRect(0,0,canvas.width,canvas.height)
 
 const image = new Image()
-image.src = 'map.png' // map test non disponible
+image.src = 'map.png'// map test non disponible
 
 const playImage = new Image()
 playImage.src = 'playerDown.png'
@@ -58,29 +58,40 @@ function animate(){
     playImage.height
     )  
 
-  if (keys.s.pressed){
-    background.position.y -= 3
-  }
+  if (keys.s.pressed) background.position.y -= 2
+  else if (keys.z.pressed) background.position.y += 2
+  else if (keys.d.pressed) background.position.x -=2
+  else if (keys.q.pressed) background.position.x +=2
+
+  
+  
 }
 animate()
 
+
+let lastKey=''// pas encore utilisé
 window.addEventListener('keydown',(e)=> {
   console.log(e.key)
   switch (e.key){
     case 's':
       keys.s.pressed=true
+      lastKey='s'
       break
     case 'z':
       keys.z.pressed=true 
+      lastKey='z'
       break
     case 'q':
       keys.q.pressed=true 
+      lastKey='q'
       break
     case 'd':
       keys.d.pressed=true 
+      lastKey='d'
       break
   }
 })
+
 
 window.addEventListener('keyup',(e)=> {
   console.log(e.key)
