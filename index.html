@@ -16,10 +16,29 @@
         <div class="container">
             <div 
                 id ="overlappingDiv" 
-                style="background-color: red;position:absolute;width: 2000px ;height:1200px; opacity: 0; pointer-events: none;"></div>
-                <canvas id="myCanvas"></canvas>
-                
+                style="background-color: black;position:absolute;width: 2000px ;height:1200px; opacity: 0; pointer-events: none;">
             </div>
+            <canvas id="myCanvas"></canvas>
+            <div style="background-color: white;
+                position: absolute;
+                width: 2000px;
+                height: 400px;
+                bottom: 267px;
+                border: 4px solid;
+                display:flex;">
+                <div style="width:66.66%;display: grid;grid-template-columns: repeat(2,1fr);">
+                    <button>attack1</button>
+                    <button>attack2</button>
+                    <button>attack3</button>
+                    <button>attack4</button>
+                </div>
+                <div style="display:flex;align-items: center;justify-content:center;width:33.33%;border-left:4px solid">
+                    <h1>Attack type</h1>
+                </div>
+        
+            </div>
+        </div>
+
             <script 
             src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js" 
             integrity="sha512-H6cPm97FAsgIKmlBA4s774vqoN24V5gSQL4yBTDOY2su2DeXZVhQPxFK4P6GPdnZqM9fg1G3cMv5wD7e6cFLZQ==" 

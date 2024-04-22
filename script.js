@@ -119,7 +119,7 @@ const battle ={
 
 
 function animate(){
-  window.requestAnimationFrame(animate)
+  const animationId= window.requestAnimationFrame(animate)
   background.draw()
   boundaries.forEach((boundary) => {
     boundary.draw()
@@ -131,6 +131,8 @@ function animate(){
 
   let moving = true
   player.moving = false 
+
+  console.log(animationId)
   if (battle.initiated) return 
 
   //zone de combat
@@ -160,15 +162,19 @@ function animate(){
         battle.initiated=true
         gsap.to('#overlappingDiv', { // transition de combat 
           opacity: 1,
-          repeat:3,
-          duration : 0.2,
+          repeat:4,
+          duration : 0.4,
           yoyo:true,
           onComplete(){
             gsap.to('#overlappingDiv', {
               opacity :1 ,
               duration :0.4
             })
-            animateBattele()
+            animateBattle()
+            gsap.to('#overlappingDiv', {
+              opacity :0 ,
+              duration :0.4
+            })
           }
         });
         break
@@ -283,6 +289,39 @@ function animate(){
 }
 animate()
 
+
+const battleBackgroundImage=new Image()
+battleBackgroundImage.src= 'map/RockCave.png'
+const battleBackGround = new Sprite({
+  position :{
+    x:0,
+    y:0
+  },
+  image:battleBackgroundImage
+})
+
+const main_char = new Sprite_fix({
+  position :{
+    x:50,
+    y:250
+  },
+  image:playRightImage
+})
+
+const ennemie = new Sprite_fix({
+  position :{
+    x:600,
+    y:250
+  },
+  image:this.ennemie.image
+})
+
+function animateBattle(){
+  window.requestAnimationFrame(animateBattle)
+  battleBackGround.draw()
+  main_char.draw()
+  ennemie.draw()
+}
 
 let lastKey=''
 window.addEventListener('keydown',(e)=> {

@@ -41,6 +41,29 @@ class Sprite{
     }
 }
 
+class Sprite_fix {
+  constructor({ position, image }) {
+      this.position = position;
+      this.image = image;
+      this.width = image.width;
+      this.height = image.height;
+  }
+
+  draw() {
+      c.drawImage(
+        this.image,
+        0,
+        0,
+        this.image.width / 4,
+        this.image.height,
+        this.position.x,
+        this.position.y,
+        this.width,
+        this.height
+      );
+  }
+}
+
 class boundary{
     static width = 48
     static height = 48
