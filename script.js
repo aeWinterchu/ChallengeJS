@@ -11,7 +11,7 @@ taille_map = 70
 
 const battleZonesMap = []
 for (let i = 0 ; i < battleZonesData.length ; i += 70){  //70 =taille de la map 
-  battlezonesMap.push(battleZonesData.slice(i ,70+ i))
+  battleZonesMap.push(battleZonesData.slice(i ,70+ i))
 }
 
 const collisionMap=[]
@@ -41,7 +41,7 @@ collisionMap.forEach((row,i) => {
 const battleZones=[]
 battleZonesMap.forEach((row,i) => {
   row.forEach((symbol,j) => {
-    if (symbol===X)// a def les battle zones dans les data
+    if (symbol===16129)// a def les battle zones dans les data
     battleZones.push(
       new boundary({
         position:{
@@ -137,10 +137,15 @@ function animate(){
   if (keys.z.pressed || keys.q.pressed || keys.s.pressed || keys.d.pressed) {
     for (let i = 0 ; i < battleZones.length;i++){
       const battleZone =battleZones[i]
-      const overlappingArea = (Math.min(player.position.x + player.width ,
-        battleZone.position.x +battleZone.width) - Math.max(player.position.x,
-        battleZone.position.x) *Math.min(player.position.y +player.height, battleZone.position.y +  battleZone.height
-        )-
+      const overlappingArea = 
+      (Math.min(
+        player.position.x + player.width ,
+        battleZone.position.x +battleZone.width
+      ) - 
+        Math.max(player.position.x,battleZone.position.x))*
+      (Math.min(player.position.y +player.height,
+        battleZone.position.y +  battleZone.height
+      )-
         Math.max(player.position.y,battleZone.position.y))
       if(
         rectangularCollision({
@@ -150,6 +155,7 @@ function animate(){
         overlappingArea > (player.width *player.height) /2 &&
         Math.random() < 0.05
       ) {
+        console.log('activate')
         battle.initiated=true
         break
       }
