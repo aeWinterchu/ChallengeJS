@@ -156,7 +156,21 @@ function animate(){
         Math.random() < 0.05
       ) {
         console.log('activate')
+        window.cancelAnimationFrame(animationId)
         battle.initiated=true
+        gsap.to('#overlappingDiv', { // transition de combat 
+          opacity: 1,
+          repeat:3,
+          duration : 0.2,
+          yoyo:true,
+          onComplete(){
+            gsap.to('#overlappingDiv', {
+              opacity :1 ,
+              duration :0.4
+            })
+            animateBattele()
+          }
+        });
         break
       }
     }
