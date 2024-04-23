@@ -27,13 +27,13 @@ class Personnage {
     }
 
     ajouterAttaque(attaque) {
-        if (this.attacks.length <= 4) {
+        if (this.attacks.length < 2) {
             this.attacks.push(attaque);
             console.log(`${attaque.nom} a bien été ajouté.`);
         } else {
-            console.log("Vous avez déjà 4 attaques.");
+            console.log("Vous avez déjà 2 attaques.");
             console.log("1. Voulez-vous échanger cette attaque contre une autre ?");
-            console.log("2. Abandonnez ?");
+            console.log("2. Abandonner l'attaque ?");
             let choix = scanner.nextInt();
 
             switch (choix) {
@@ -53,16 +53,6 @@ class Personnage {
                             this.attacks[1] = attaque;
                             break;
 
-                        case 3:
-                            console.log("Vous avez échangé " + this.attacks[2].nom + " contre " + attaque.nom + ".");
-                            this.attacks[2] = attaque;
-                            break;
-
-                        case 4:
-                            console.log("Vous avez échangé " + this.attacks[3].nom + " contre " + attaque.nom + ".");
-                            this.attacks[3] = attaque;
-                            break;
-
                         default:
                             console.log("Choix invalide.");
                             break;
@@ -70,7 +60,7 @@ class Personnage {
 
                     break;
                 case 2:
-                    console.log("Vous avez choisi d'abandonner.");
+                    console.log("Vous avez choisi d'abandonner l'attaque.");
                     break;
                 default:
                     console.log("Choix invalide.");
@@ -111,3 +101,9 @@ console.log("Nom du personnage :", nomPersonnage);
 
 const attaquesPersonnage = personnage.getAttaques();
 console.log("Attaques du personnage :", attaquesPersonnage);
+
+
+let personnage = new Personnage("NomDuPersonnage");  //test afin de finir le combat 
+document.querySelector('h1').textContent = personnage.nom; //test afin de finir le combat 
+
+nomPersonnageElement.textContent = personnage.nom; //test afin de finir le combat 

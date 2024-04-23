@@ -48,11 +48,12 @@ button:hover{
 .container {
   display: flex;
   justify-content: center;
-  align-items: center;
+  
   height: 98vh; /* Ajustez la hauteur du conteneur selon vos besoins */
 }
 
 #myCanvas {
   width: 2000px; /* Largeur du canvas */
-  height: auto; /* Hauteur du canvas */
+  height: auto;
+  position:static;/* Hauteur du canvas */
 }

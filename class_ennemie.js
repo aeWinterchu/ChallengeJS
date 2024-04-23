@@ -1,4 +1,4 @@
-class Ennemi {
+class Ennemie {
     constructor(nom, image,cheminImage) {
         this.nom = nom;
         this.image = image;
@@ -19,3 +19,10 @@ class Ennemi {
         return this.attacks;
     }
 }
+
+
+
+let opps = new Ennemie("NomDuPersonnage");  //test afin de finir le combat 
+document.querySelector('h1').textContent = opps.nom; //test afin de finir le combat 
+
+nomEnnemieElement.textContent = opps.nom; //test afin de finir le combat 

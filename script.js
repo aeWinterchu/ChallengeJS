@@ -313,7 +313,7 @@ const ennemie = new Sprite_fix({
     x:600,
     y:250
   },
-  image:this.ennemie.image
+  image:playDownImage // this.ennemie.image
 })
 
 function animateBattle(){
