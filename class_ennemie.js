@@ -1,10 +1,9 @@
 class Ennemie {
-    constructor(nom, image,cheminImage) {
+    constructor(nom, cheminImage) {
         this.nom = nom;
-        this.image = image;
+        this.image = new Image(); 
         this.image.src = cheminImage;
         this.attacks = [];
-
     }
 
     getNom() {
@@ -21,8 +20,7 @@ class Ennemie {
 }
 
 
+let opps = new Ennemie("OP*pps", "personnage/playerLeft.png");
 
-let opps = new Ennemie("NomDuPersonnage");  //test afin de finir le combat 
-document.querySelector('h1').textContent = opps.nom; //test afin de finir le combat 
 
-nomEnnemieElement.textContent = opps.nom; //test afin de finir le combat 
+document.querySelector('#nomEnnemie').textContent = opps.nom;

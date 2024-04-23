@@ -287,7 +287,6 @@ function animate(){
     })
   } 
 }
-animate()
 
 
 const battleBackgroundImage=new Image()
@@ -313,7 +312,7 @@ const ennemie = new Sprite_fix({
     x:600,
     y:250
   },
-  image:playDownImage // this.ennemie.image
+  image:opps.image
 })
 
 function animateBattle(){
@@ -322,6 +321,21 @@ function animateBattle(){
   main_char.draw()
   ennemie.draw()
 }
+
+//animate()
+animateBattle()
+
+
+document.querySelectorAll('button').forEach((button)=>{
+  button.addEventListener('click',()=>{
+    console.log('clicked');
+    console.log(personnage.attacks[0]);
+  })
+})
+
+addEventListener('click',()=>{
+  console.log('clicked');
+})
 
 let lastKey=''
 window.addEventListener('keydown',(e)=> {

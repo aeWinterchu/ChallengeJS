@@ -1,8 +1,7 @@
 class Attack {
-    constructor(nom, type, niveau, usage) {
+    constructor(nom, type, usage) {
         this.nom = nom;
         this.type = type;
-        this.niveau = niveau;
         this.usage = usage;
         
     }
@@ -23,7 +22,5 @@ class Attack {
         return this.usage;
     }
 
-    getAttacks() {
-        return this.attacks;
-    }
+    
 }
