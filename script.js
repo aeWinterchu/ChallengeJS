@@ -54,22 +54,22 @@ battleZonesMap.forEach((row,i) => {
 })
 
 const image = new Image()
-image.src = 'map/Carte4.png'// map test non disponible
+image.src = 'map/map4.png'// map test non disponible
 
 const foregroundImage = new Image()
 foregroundImage.src = ''// front map pas disponible
 
 const playDownImage = new Image()
-playDownImage.src = 'personnage/playerDown.png'
+playDownImage.src = 'img/playerDown.png'
 
 const playUpImage = new Image()
-playUpImage.src = 'personnage/playerUp.png'
+playUpImage.src = 'img/playerUp.png'
 
 const playLeftImage = new Image()
-playLeftImage.src = 'personnage/playerLeft.png'
+playLeftImage.src = 'img/playerLeft.png'
 
 const playRightImage = new Image()
-playRightImage.src = 'personnage/playerRight.png'
+playRightImage.src = 'img/playerRight.png'
 
 
 const player = new Sprite ({
@@ -290,7 +290,7 @@ function animate(){
 
 
 const battleBackgroundImage=new Image()
-battleBackgroundImage.src= 'map/RockCave.png'
+battleBackgroundImage.src= 'img/RockCave.png'
 const battleBackGround = new Sprite({
   position :{
     x:0,
@@ -316,7 +316,7 @@ const ennemie = new Sprite({
     x:600,
     y:250
   },
-  image:opps.image,
+  image:transparent.image,
   frames:{
     max:4,
     hold:10
