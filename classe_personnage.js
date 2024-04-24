@@ -125,7 +125,8 @@ class Attack {
 
 //console.log(personnage.attacks[0])
 
-let personnage = new Personnage("Main");//test afin de finir le combat 
+let personnage = new Personnage("Main", "img/Character.png");//test afin de finir le combat
+personnage.image = "img/Character.png";
 
 let taere = new Attack("Attack1", "eau", 3)
 
@@ -133,4 +134,5 @@ personnage.ajouterAttaque(taere);
 
 console.log("Nom du personnage :", personnage.nom); //test afin de finir le combat 
 console.log("Attaques du personnage :", personnage.attacks); //test afin de finir le combat 
-document.querySelector('h1').textContent = personnage.nom; //test afin de finir le combat 
+document.querySelector('h1').textContent = personnage.nom; //test afin de finir le combat
+document.querySelector('#imagePerso').src = personnage.image;
