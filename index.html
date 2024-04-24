@@ -34,7 +34,7 @@
                 <h1 style="font-size: 50px;margin-left: 12px;margin-top: 12px"> Main</h1> <!-- Personnage.nom  id="nomPersonnage"-->
                 <div style="position:relative">
                     <div style="height:15px;background-color: #ddd;margin-top:10px;"></div>
-                    <div style="height:15px;background-color: green;position: absolute;top:0;left:0;right:0;"></div>
+                    <div id="mainbar"style="height:15px;background-color: green;position: absolute;top:0;left:0;right:0;"></div>
                 </div>
             </div>
 
@@ -51,7 +51,7 @@
                 </div>
                 <div style="position:relative">
                     <div style="height:15px;background-color: #ddd;margin-top:10px;"></div>
-                    <div style="height:15px;background-color: green;position: absolute;top:0;left:0;right:0;"></div>
+                    <div id="ennemiebar" style="height:15px;background-color: green;position: absolute;top:0;left:0;right:0;"></div>
                 </div>
             </div>
             
@@ -79,8 +79,8 @@
 
             <div style="background-color: white;height:300px;position:absolute;bottom:0;left: 0;right:0;display: flex;border-top:4px black solid;">
                 <div style="width:66.66%;display: grid;grid-template-columns: repeat(2,1fr);">
-                    <button>attack1</button> <!-- futur attaque par defaut-->
-                    <button>attack2</button> <!-- attaque de recup-->
+                    <button>Taere</button> <!-- futur attaque par defaut-->
+                    <button>Attack2</button> <!-- attaque de recup-->
                 </div>
                 <div style="display:flex;align-items: center;justify-content:center;width:33.33%;border-left:4px solid">
                     <h1>Attack type</h1>
@@ -97,10 +97,11 @@
         <script type="module" src="classe_personnage.js"></script>
         <script src="classe_personnage.js"></script>
         <script src="class_ennemie.js"></script>
-        <script src="class_attack.js"></script>
+        <!--<script src="class_attack.js"></script>-->
         <script src="objet.js"></script>
         <script src="battlezones.js"></script>
         <script src="collision.js"></script>
+        <script src="attacks.js"></script>
         <script src="classes.js"></script>
         <script src="script.js"></script>
             

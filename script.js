@@ -130,7 +130,7 @@ function animate(){
   player.draw()
 
   let moving = true
-  player.moving = false 
+  player.animate = false
 
   console.log(animationId)
   if (battle.initiated) return 
@@ -183,7 +183,7 @@ function animate(){
   }
     
   if (keys.z.pressed && lastKey ==='z') {
-    player.moving = true
+    player.animate = true
     player.image = player.sprites.up
 
     for (let i = 0 ; i < boundaries.length;i++){
@@ -212,7 +212,7 @@ function animate(){
 
   } 
   else if (keys.s.pressed && lastKey ==='s') {
-    player.moving = true
+    player.animate = true
     player.image = player.sprites.down
     for (let i = 0 ; i < boundaries.length;i++){
       const boundary =boundaries[i]
@@ -237,7 +237,7 @@ function animate(){
     })
   } 
   else if (keys.d.pressed && lastKey ==='d'){
-    player.moving = true
+    player.animate = true
     player.image = player.sprites.right
     for (let i = 0 ; i < boundaries.length;i++){
       const boundary =boundaries[i]
@@ -262,7 +262,7 @@ function animate(){
     })
   } 
   else if (keys.q.pressed && lastKey ==='q'){
-    player.moving = true
+    player.animate = true
     player.image = player.sprites.left
     for (let i = 0 ; i < boundaries.length;i++){
       const boundary =boundaries[i]
@@ -299,27 +299,35 @@ const battleBackGround = new Sprite({
   image:battleBackgroundImage
 })
 
-const main_char = new Sprite_fix({
+const main_char = new Sprite({
   position :{
     x:50,
     y:250
   },
-  image:playRightImage
+  image:playRightImage,
+  frames:{
+    max:4,
+    hold:10
+  }
 })
 
-const ennemie = new Sprite_fix({
+const ennemie = new Sprite({
   position :{
     x:600,
     y:250
   },
   image:slime.image
 })
-
+const renderedSprites =[]
 function animateBattle(){
   window.requestAnimationFrame(animateBattle)
   battleBackGround.draw()
   main_char.draw()
   ennemie.draw()
+
+  renderedSprites.forEach((sprite)=>{
+    sprite.draw()
+  })
 }
 
 //animate()
@@ -327,15 +335,18 @@ animateBattle()
 
 
 document.querySelectorAll('button').forEach((button)=>{
-  button.addEventListener('click',()=>{
-    console.log('clicked');
-    console.log(personnage.attacks[0]);
+  button.addEventListener('click',(e)=>{
+    const selectedAttack = attacks[e.currentTarget.innerHTML]
+    console.log(e.currentTarget.innerHTML);
+    main_char.attack({
+      attack:selectedAttack,
+      recipient:ennemie,
+      renderedSprites
+    })
   })
 })
 
-addEventListener('click',()=>{
-  console.log('clicked');
-})
+
 
 let lastKey=''
 window.addEventListener('keydown',(e)=> {
