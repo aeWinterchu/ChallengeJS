@@ -46,13 +46,30 @@
             right: 50px;
             border:8px black solid;
             padding:18px;">
-                <h1 id="nomEnnemie" style="font-size: 50px;margin-left: 12px;margin-top: 12px"> </h1> <!-- opps.nom  id="nomEnnemie"-->
+                <div style="margin-bottom: 20px;"> <!-- Ajout d'une marge pour séparer le bloc de nom et l'image -->
+                    <h1 id="nomEnnemie" style="font-size: 50px;margin-left: 12px;margin-top: 12px"> </h1>
+                </div>
                 <div style="position:relative">
                     <div style="height:15px;background-color: #ddd;margin-top:10px;"></div>
                     <div style="height:15px;background-color: green;position: absolute;top:0;left:0;right:0;"></div>
                 </div>
             </div>
-
+            
+            <div style="background-color: transparent;
+            width: 500px;
+            position: absolute;
+            top: 250px;
+            right: 70px;
+            padding:18px;">
+                <!-- Image de l'ennemi -->
+                <div style="text-align: center;">
+                
+                </div>
+        
+                <div style="text-align: center; margin-top: 20px;"> <!-- Ajout de marge en haut pour séparer l'image du bloc de nom -->
+                    <img id="imageEnnemie" src="" alt="Image de l'ennemi" style="width: 100%; height: auto;"> <!-- Ajout de l'élément image avec l'ID imageEnnemie et spécification des dimensions -->
+                </div>
+            </div>
 
 
             <canvas id="myCanvas"></canvas>

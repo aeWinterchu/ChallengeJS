@@ -312,7 +312,7 @@ const ennemie = new Sprite_fix({
     x:600,
     y:250
   },
-  image:opps.image
+  image:slime.image
 })
 
 function animateBattle(){
