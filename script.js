@@ -290,7 +290,7 @@ function animate(){
 
 
 const battleBackgroundImage=new Image()
-battleBackgroundImage.src= 'map/RockCave.png'
+battleBackgroundImage.src= 'img/RockCave.png'
 const battleBackGround = new Sprite({
   position :{
     x:0,
@@ -316,7 +316,7 @@ const ennemie = new Sprite({
     x:600,
     y:250
   },
-  image:slime.image
+  image:transparent.image
 })
 const renderedSprites =[]
 function animateBattle(){
