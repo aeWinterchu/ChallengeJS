@@ -80,6 +80,7 @@ const attacks = {
     }
 };
 
+let transparent = new Ennemie("img/transparent.png")
 let slime = new Ennemie("Slime", "img/Slime.png")
 let prototype_god = new Ennemie("PROTOTYPE-God", "img/God.png")
 let werewolf = new Ennemie("Werewolf", "img/Werewolf.png")
