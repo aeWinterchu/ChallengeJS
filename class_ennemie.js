@@ -37,12 +37,48 @@ class Werewolf extends Ennemie {
     }
 }
 
+const attacks = {
+    AttackWater1: {
+        name: "Attack1",
+        type: "eau",
+        puissance: 3
+    },
+    AttackWater2: {
+        name: "Canon d'Ô",
+        type: "eau",
+        puissance: 5
+    },
+    AttackFire1: {
+        name: "Croc'Feu",
+        type: "feu",
+        puissance: 5
+    },
+    AttackFire2: {
+        name: "Griffe Brûlante",
+        type: "feu",
+        puissance: 5
+    },
+    AttackPlant1: {
+        name: "Plante Verte",
+        type: "plante",
+        puissance: 5
+    },
+    AttackPlant2: {
+        name: "Rayon Solaire",
+        type: "plante",
+        puissance: 5
+    }
+};
+
 let slime = new Ennemie("Slime", "img/Slime.png")
 let prototype_god = new Ennemie("PROTOTYPE-God", "img/God.png")
 let werewolf = new Ennemie("Werewolf", "img/Werewolf.png")
 
+document.querySelector('#nomEnnemie').textContent = werewolf.getNom();
+document.querySelector('#imageEnnemie').src = werewolf.getImage().src;
 
 document.querySelector('#nomEnnemie').textContent = slime.getNom();
 document.querySelector('#imageEnnemie').src = slime.getImage().src;
-//document.querySelector('#nomEnnemie').textContent = prototype_god.getNom();
-//document.querySelector('#nomEnnemie').textContent = werewolf.getNom();
+
+document.querySelector('#nomEnnemie').textContent = prototype_god.getNom();
+document.querySelector('#imageEnnemie').src = prototype_god.getImage().src;
