@@ -54,7 +54,7 @@ battleZonesMap.forEach((row,i) => {
 })
 
 const image = new Image()
-image.src = 'map/Carte4.png'// map test non disponible
+image.src = 'map/map4.png'// map test non disponible
 
 const foregroundImage = new Image()
 foregroundImage.src = ''// front map pas disponible
@@ -316,9 +316,13 @@ const ennemie = new Sprite({
     x:600,
     y:250
   },
-  image:transparent.image
+  image:transparent.image,
+  frames:{
+    max:4,
+    hold:10
+  }
 })
-const renderedSprites =[]
+const renderedSprites =[main_char,ennemie]
 function animateBattle(){
   window.requestAnimationFrame(animateBattle)
   battleBackGround.draw()
