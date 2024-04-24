@@ -24,3 +24,5 @@ class Attack {
 
     
 }
+
+let taere = new Attack("taere","eau",3)

@@ -19,8 +19,30 @@ class Ennemie {
     }
 }
 
+class Slime extends Ennemie {
+    constructor(nom, cheminImage) {
+        super(nom, cheminImage);
+    }
+}
 
-let opps = new Ennemie("OP*pps", "personnage/playerLeft.png");
+class Prototype_God extends Ennemie {
+    constructor(nom, cheminImage) {
+        super(nom, cheminImage);
+    }
+}
+
+class Werewolf extends Ennemie {
+    constructor(nom, cheminImage) {
+        super(nom, cheminImage);
+    }
+}
+
+let slime = new Ennemie("Slime", "img/Slime.png")
+let prototype_god = new Ennemie("PROTOTYPE-God", "img/God.png")
+let werewolf = new Ennemie("Werewolf", "img/Werewolf.png")
 
 
-document.querySelector('#nomEnnemie').textContent = opps.nom;
+document.querySelector('#nomEnnemie').textContent = slime.getNom();
+document.querySelector('#imageEnnemie').src = slime.getImage().src;
+//document.querySelector('#nomEnnemie').textContent = prototype_god.getNom();
+//document.querySelector('#nomEnnemie').textContent = werewolf.getNom();
