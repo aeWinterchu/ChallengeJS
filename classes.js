@@ -1,3 +1,4 @@
+
 class Sprite{ // sur la map
   constructor({position,velocity,image,frames={max:1,hold:10},sprites,animate=false }){
     this.position=position
@@ -10,6 +11,8 @@ class Sprite{ // sur la map
     }
     this.animate =animate
     this.sprites =sprites
+    this.opacity = 1
+    this.health = 100 
   }
   
   draw() {
@@ -40,6 +43,12 @@ class Sprite{ // sur la map
   }
 
   attack({attack,recipient,renderedSprites}){
+
+    let healthBar = '#ennemiebar'
+    if (this.isEnnemie) healthBar = '#mainbar'
+
+    this.health -= attack.puissance
+
     switch(attack.name){
       case 'Taere':
         const AttaqueEauImage =new Image()
@@ -52,17 +61,38 @@ class Sprite{ // sur la map
           image:AttaqueEauImage,
           frames:{
             max:23,
-            hold:23
+            
           },
           animate:true
         })
 
         renderedSprites.push(AttaqueEau)
 
-        gsap.to(AttaqueEau.position,{
-          x:this.position.x,
-          y:this.position.y
-        })
+        gsap.to(AttaqueEau.position, {
+          x: recipient.position.x,
+          y: recipient.position.y,
+          onComplete: () => {
+            //hit
+            gsap.to(healthBar, {
+              width: this.health + '%'
+            })
+
+            gsap.to(recipient.position, {
+              x: recipient.position.x + 10,
+              yoyo: true,
+              repeat: 5,
+              duration: 0.08
+            })
+
+            gsap.to(recipient, {
+              opacity: 0,
+              repeat: 5,
+              yoyo: true,
+              duration: 0.08
+            })
+            renderedSprites.splice(1, 1)
+          }
+        });
 
 
       break;
@@ -71,13 +101,12 @@ class Sprite{ // sur la map
     
       const tl = gsap.timeline()
 
-      this.health -= attack.puissance
+      
 
       let movementDistance = 20 
       if (this.isEnnemie) movementDistance = -20
 
-      let healthbar = '#ennemiebar'
-      if (this.isEnnemie) healthbar = '#mainbar'
+      
 
 
       tl.to(this.position,{
@@ -88,7 +117,7 @@ class Sprite{ // sur la map
           duration: 0.1,
           onComplete:()=>{
            //hit
-            gsap.to(healthbar,{
+            gsap.to(healthBar,{
               width : this.health +'%'
             })
             gsap.to(recipient.position,{

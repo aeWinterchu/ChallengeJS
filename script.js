@@ -322,7 +322,7 @@ const ennemie = new Sprite({
     hold:10
   }
 })
-const renderedSprites =[]
+const renderedSprites =[main_char,ennemie]
 function animateBattle(){
   window.requestAnimationFrame(animateBattle)
   battleBackGround.draw()
